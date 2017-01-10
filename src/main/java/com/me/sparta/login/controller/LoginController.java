@@ -1,13 +1,14 @@
 package com.me.sparta.login.controller;
 
+import com.me.sparta.security.Authentication;
 import com.me.sparta.security.AuthenticationService;
+import com.me.sparta.security.UserCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class LoginController {
@@ -15,12 +16,12 @@ public class LoginController {
     @Autowired
     private AuthenticationService authenticationService;
 
-    @PostMapping(path = "/login")
-    public Map<String, String> createTelephoneNumber(@RequestParam("username") String username, @RequestParam("password") String password) {
+    @PostMapping(path = "/login", consumes = "application/json")
+    public ResponseEntity<Authentication> createTelephoneNumber(@RequestBody UserCredentials userCredentials) {
 
-        Map<String, String> map = new HashMap<>();
+        Authentication authentication = authenticationService.authenticate(userCredentials);
+        HttpStatus httpStatus = authentication == null ? HttpStatus.BAD_REQUEST : HttpStatus.OK;
 
-        map.put("userCredentials.getUsername()", "userCredentials.getPassword()");
-        return  map;
+        return new ResponseEntity<Authentication>(authentication, httpStatus);
     }
 }
