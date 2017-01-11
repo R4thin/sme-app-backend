@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.me.SomeCatchyServiceApplicationTests" time="0.015" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="com.me.SomeCatchyServiceApplicationTests" time="0.008" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2016.2.5"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -11,7 +11,7 @@
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="idea.launcher.port" value="7535"/>
+    <property name="idea.launcher.port" value="7533"/>
     <property name="user.script" value=""/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -62,5 +62,103 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="contextLoads" classname="com.me.SomeCatchyServiceApplicationTests" time="0.015"/>
+  <testcase name="initializationError" classname="com.me.SomeCatchyServiceApplicationTests" time="0.008">
+    <error message="Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test" type="java.lang.IllegalStateException"><![CDATA[java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
+	at org.springframework.util.Assert.state(Assert.java:392)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses(SpringBootTestContextBootstrapper.java:156)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.processMergedContextConfiguration(SpringBootTestContextBootstrapper.java:116)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildMergedContextConfiguration(AbstractTestContextBootstrapper.java:409)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildDefaultMergedContextConfiguration(AbstractTestContextBootstrapper.java:323)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildMergedContextConfiguration(AbstractTestContextBootstrapper.java:277)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildTestContext(AbstractTestContextBootstrapper.java:112)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.buildTestContext(SpringBootTestContextBootstrapper.java:74)
+	at org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:120)
+	at org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:105)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTestContextManager(SpringJUnit4ClassRunner.java:152)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.<init>(SpringJUnit4ClassRunner.java:143)
+	at org.springframework.test.context.junit4.SpringRunner.<init>(SpringRunner.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:104)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:86)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:33)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+]]></error>
+    <system-out><![CDATA[22:07:12.282 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.me.SomeCatchyServiceApplicationTests]
+22:07:12.294 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+22:07:12.312 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+22:07:12.338 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.me.SomeCatchyServiceApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+22:07:12.353 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.me.SomeCatchyServiceApplicationTests], using SpringBootContextLoader
+22:07:12.357 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.me.SomeCatchyServiceApplicationTests]: class path resource [com/me/SomeCatchyServiceApplicationTests-context.xml] does not exist
+22:07:12.357 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.me.SomeCatchyServiceApplicationTests]: class path resource [com/me/SomeCatchyServiceApplicationTestsContext.groovy] does not exist
+22:07:12.358 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.me.SomeCatchyServiceApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+22:07:12.358 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.me.SomeCatchyServiceApplicationTests]: SomeCatchyServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:07:12.403 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.me.SomeCatchyServiceApplicationTests]
+22:07:12.448 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:07:12.448 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:07:12.448 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+22:07:12.458 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/me/] to resources [URL [file:/C:/workspace_test/some_catchy_service/target/test-classes/com/me/], URL [file:/C:/workspace_test/some_catchy_service/target/classes/com/me/]]
+22:07:12.458 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\workspace_test\some_catchy_service\target\test-classes\com\me]
+22:07:12.458 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\workspace_test\some_catchy_service\target\test-classes\com\me] for files matching pattern [C:/workspace_test/some_catchy_service/target/test-classes/com/me/*.class]
+22:07:12.462 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\workspace_test\some_catchy_service\target\classes\com\me]
+22:07:12.462 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\workspace_test\some_catchy_service\target\classes\com\me] for files matching pattern [C:/workspace_test/some_catchy_service/target/classes/com/me/*.class]
+22:07:12.463 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/me/*.class] to resources [file [C:\workspace_test\some_catchy_service\target\test-classes\com\me\SomeCatchyServiceApplicationTests.class]]
+22:07:12.481 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/] to resources [URL [file:/C:/workspace_test/some_catchy_service/target/test-classes/com/], URL [file:/C:/workspace_test/some_catchy_service/target/classes/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/org/mongodb/mongodb-driver/3.2.2/mongodb-driver-3.2.2.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/org/mongodb/mongodb-driver-core/3.2.2/mongodb-driver-core-3.2.2.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/classmate/1.3.1/classmate-1.3.1.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.1/jackson-databind-2.8.1.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.1/jackson-annotations-2.8.1.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/jayway/jsonpath/json-path/2.2.0/json-path-2.2.0.jar!/com/]]
+22:07:12.482 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\workspace_test\some_catchy_service\target\test-classes\com]
+22:07:12.482 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\workspace_test\some_catchy_service\target\test-classes\com] for files matching pattern [C:/workspace_test/some_catchy_service/target/test-classes/com/*.class]
+22:07:12.482 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\workspace_test\some_catchy_service\target\classes\com]
+22:07:12.482 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\workspace_test\some_catchy_service\target\classes\com] for files matching pattern [C:/workspace_test/some_catchy_service/target/classes/com/*.class]
+22:07:12.483 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/org/mongodb/mongodb-driver/3.2.2/mongodb-driver-3.2.2.jar]
+22:07:12.487 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/org/mongodb/mongodb-driver-core/3.2.2/mongodb-driver-core-3.2.2.jar]
+22:07:12.496 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/classmate/1.3.1/classmate-1.3.1.jar]
+22:07:12.497 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.1/jackson-databind-2.8.1.jar]
+22:07:12.508 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.1/jackson-annotations-2.8.1.jar]
+22:07:12.510 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar]
+22:07:12.512 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/jayway/jsonpath/json-path/2.2.0/json-path-2.2.0.jar]
+22:07:12.513 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/*.class] to resources []
+22:07:12.525 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.me.SomeCatchyServiceApplicationTests]
+22:07:12.525 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+22:07:12.525 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+22:07:12.526 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.me.SomeCatchyServiceApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+22:07:12.526 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.me.SomeCatchyServiceApplicationTests], using SpringBootContextLoader
+22:07:12.527 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.me.SomeCatchyServiceApplicationTests]: class path resource [com/me/SomeCatchyServiceApplicationTests-context.xml] does not exist
+22:07:12.530 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.me.SomeCatchyServiceApplicationTests]: class path resource [com/me/SomeCatchyServiceApplicationTestsContext.groovy] does not exist
+22:07:12.536 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.me.SomeCatchyServiceApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+22:07:12.538 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.me.SomeCatchyServiceApplicationTests]: SomeCatchyServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:07:12.557 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.me.SomeCatchyServiceApplicationTests]
+22:07:12.558 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:07:12.558 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:07:12.560 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+22:07:12.561 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/me/] to resources [URL [file:/C:/workspace_test/some_catchy_service/target/test-classes/com/me/], URL [file:/C:/workspace_test/some_catchy_service/target/classes/com/me/]]
+22:07:12.561 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\workspace_test\some_catchy_service\target\test-classes\com\me]
+22:07:12.562 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\workspace_test\some_catchy_service\target\test-classes\com\me] for files matching pattern [C:/workspace_test/some_catchy_service/target/test-classes/com/me/*.class]
+22:07:12.563 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\workspace_test\some_catchy_service\target\classes\com\me]
+22:07:12.564 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\workspace_test\some_catchy_service\target\classes\com\me] for files matching pattern [C:/workspace_test/some_catchy_service/target/classes/com/me/*.class]
+22:07:12.566 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/me/*.class] to resources [file [C:\workspace_test\some_catchy_service\target\test-classes\com\me\SomeCatchyServiceApplicationTests.class]]
+22:07:12.569 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/] to resources [URL [file:/C:/workspace_test/some_catchy_service/target/test-classes/com/], URL [file:/C:/workspace_test/some_catchy_service/target/classes/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/org/mongodb/mongodb-driver/3.2.2/mongodb-driver-3.2.2.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/org/mongodb/mongodb-driver-core/3.2.2/mongodb-driver-core-3.2.2.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/classmate/1.3.1/classmate-1.3.1.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.1/jackson-databind-2.8.1.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.1/jackson-annotations-2.8.1.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar!/com/], URL [jar:file:/C:/Users/iabdurahman/.m2/repository/com/jayway/jsonpath/json-path/2.2.0/json-path-2.2.0.jar!/com/]]
+22:07:12.570 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\workspace_test\some_catchy_service\target\test-classes\com]
+22:07:12.570 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\workspace_test\some_catchy_service\target\test-classes\com] for files matching pattern [C:/workspace_test/some_catchy_service/target/test-classes/com/*.class]
+22:07:12.571 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\workspace_test\some_catchy_service\target\classes\com]
+22:07:12.571 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\workspace_test\some_catchy_service\target\classes\com] for files matching pattern [C:/workspace_test/some_catchy_service/target/classes/com/*.class]
+22:07:12.572 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/org/mongodb/mongodb-driver/3.2.2/mongodb-driver-3.2.2.jar]
+22:07:12.577 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/org/mongodb/mongodb-driver-core/3.2.2/mongodb-driver-core-3.2.2.jar]
+22:07:12.593 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/classmate/1.3.1/classmate-1.3.1.jar]
+22:07:12.594 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.1/jackson-databind-2.8.1.jar]
+22:07:12.611 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.1/jackson-annotations-2.8.1.jar]
+22:07:12.616 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar]
+22:07:12.618 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in jar file [file:/C:/Users/iabdurahman/.m2/repository/com/jayway/jsonpath/json-path/2.2.0/json-path-2.2.0.jar]
+22:07:12.619 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/*.class] to resources []
+]]></system-out>
+  </testcase>
 </testsuite>

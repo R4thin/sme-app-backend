@@ -1,1 +1,8 @@
-com\me\Application.class
+com\me\sparta\login\controller\LoginController.class
+com\me\sparta\config\CORSFilter.class
+com\me\sparta\security\DefaultAuthenticationService.class
+com\me\sparta\security\AuthenticationService.class
+com\me\sparta\security\Authentication.class
+com\me\sparta\security\UserCredentials.class
+Application.class
+com\me\sparta\registration\RegistrationController.class

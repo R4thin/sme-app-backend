@@ -1,8 +1,8 @@
 package com.me.sparta.login.controller;
 
-import com.me.sparta.security.Authentication;
-import com.me.sparta.security.AuthenticationService;
-import com.me.sparta.security.UserCredentials;
+import com.me.sparta.login.authentication.AuthenticationRespone;
+import com.me.sparta.login.authentication.AuthenticationService;
+import com.me.sparta.login.authentication.UserCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +17,11 @@ public class LoginController {
     private AuthenticationService authenticationService;
 
     @PostMapping(path = "/login", consumes = "application/json")
-    public ResponseEntity<Authentication> createTelephoneNumber(@RequestBody UserCredentials userCredentials) {
+    public ResponseEntity<AuthenticationRespone> login(@RequestBody UserCredentials userCredentials) {
 
-        Authentication authentication = authenticationService.authenticate(userCredentials);
+        AuthenticationRespone authentication = authenticationService.authenticate(userCredentials);
         HttpStatus httpStatus = authentication == null ? HttpStatus.BAD_REQUEST : HttpStatus.OK;
 
-        return new ResponseEntity<Authentication>(authentication, httpStatus);
+        return new ResponseEntity<AuthenticationRespone>(authentication, httpStatus);
     }
 }

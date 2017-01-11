@@ -1,1 +1,8 @@
-C:\workspace_test\some_catchy_service\src\main\java\com\me\Application.java
+C:\workspace_test\some_catchy_service\src\main\java\com\me\sparta\config\CORSFilter.java
+C:\workspace_test\some_catchy_service\src\main\java\com\me\sparta\security\DefaultAuthenticationService.java
+C:\workspace_test\some_catchy_service\src\main\java\com\me\sparta\security\Authentication.java
+C:\workspace_test\some_catchy_service\src\main\java\Application.java
+C:\workspace_test\some_catchy_service\src\main\java\com\me\sparta\security\UserCredentials.java
+C:\workspace_test\some_catchy_service\src\main\java\com\me\sparta\login\controller\LoginController.java
+C:\workspace_test\some_catchy_service\src\main\java\com\me\sparta\registration\RegistrationController.java
+C:\workspace_test\some_catchy_service\src\main\java\com\me\sparta\security\AuthenticationService.java
