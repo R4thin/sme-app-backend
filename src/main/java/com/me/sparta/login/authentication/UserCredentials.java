@@ -2,23 +2,23 @@ package com.me.sparta.login.authentication;
 
 public class UserCredentials {
 
-    private String username;
+    private String preference;
     private String password;
 
     public UserCredentials() {
     }
 
-    public UserCredentials(String username, String password) {
-        this.username = username;
+    public UserCredentials(String preference, String password) {
+        this.preference = preference;
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPreference() {
+        return preference;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPreference(String preference) {
+        this.preference = preference;
     }
 
     public String getPassword() {
@@ -36,14 +36,14 @@ public class UserCredentials {
 
         UserCredentials that = (UserCredentials) o;
 
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
+        if (preference != null ? !preference.equals(that.preference) : that.preference != null) return false;
         return password != null ? password.equals(that.password) : that.password == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = username != null ? username.hashCode() : 0;
+        int result = preference != null ? preference.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
@@ -51,7 +51,7 @@ public class UserCredentials {
     @Override
     public String toString() {
         return "UserCredentials{" +
-                "username='" + username + '\'' +
+                "preference='" + preference + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

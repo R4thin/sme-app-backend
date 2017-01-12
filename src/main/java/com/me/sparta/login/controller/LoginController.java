@@ -20,7 +20,7 @@ public class LoginController {
     public ResponseEntity<AuthenticationRespone> login(@RequestBody UserCredentials userCredentials) {
 
         AuthenticationRespone authentication = authenticationService.authenticate(userCredentials);
-        HttpStatus httpStatus = authentication == null ? HttpStatus.BAD_REQUEST : HttpStatus.OK;
+        HttpStatus httpStatus = authentication == null ? HttpStatus.NOT_ACCEPTABLE : HttpStatus.OK;
 
         return new ResponseEntity<AuthenticationRespone>(authentication, httpStatus);
     }

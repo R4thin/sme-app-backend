@@ -1,7 +1,7 @@
 package com.me.sparta.login.authentication;
 
-import com.me.sparta.repository.AuthenticationData;
-import com.me.sparta.repository.AuthenticationRepositoryDao;
+import com.me.sparta.repositories.authentication.AuthenticationData;
+import com.me.sparta.repositories.authentication.AuthenticationRepositoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ public class DefaultAuthenticationService implements AuthenticationService {
 
     @Override
     public AuthenticationRespone authenticate(UserCredentials userCredentials) {
-        AuthenticationData authenticationData = authenticationRepositoryDao.findByUsernameAndPassword(userCredentials.getUsername(), userCredentials.getPassword());
+        AuthenticationData authenticationData = authenticationRepositoryDao.findByUsernameOrEmailAndPassword(userCredentials.getPreference(), userCredentials.getPassword());
         if (authenticationData == null) {
             return null;
         }
