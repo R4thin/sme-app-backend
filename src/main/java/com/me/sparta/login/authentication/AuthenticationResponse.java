@@ -1,15 +1,15 @@
 package com.me.sparta.login.authentication;
 
-public class AuthenticationRespone {
+public class AuthenticationResponse {
 
     private String token;
     private String userId;
     private String username;
 
-    public AuthenticationRespone() {
+    public AuthenticationResponse() {
     }
 
-    public AuthenticationRespone(String token, String userId, String username) {
+    public AuthenticationResponse(String token, String userId, String username) {
         this.token = token;
         this.userId = userId;
         this.username = username;
@@ -41,7 +41,7 @@ public class AuthenticationRespone {
 
     @Override
     public String toString() {
-        return "AuthenticationRespone{" +
+        return "AuthenticationResponse{" +
                 "token='" + token + '\'' +
                 ", userId='" + userId + '\'' +
                 ", username='" + username + '\'' +

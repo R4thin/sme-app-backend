@@ -14,11 +14,11 @@ public class DefaultAuthenticationService implements AuthenticationService {
     private AuthenticationRepositoryDao authenticationRepositoryDao;
 
     @Override
-    public AuthenticationRespone authenticate(UserCredentials userCredentials) {
+    public AuthenticationResponse authenticate(UserCredentials userCredentials) {
         AuthenticationData authenticationData = authenticationRepositoryDao.findByUsernameOrEmailAndPassword(userCredentials.getPreference(), userCredentials.getPassword());
         if (authenticationData == null) {
             return null;
         }
-        return new AuthenticationRespone(UUID.randomUUID().toString(),authenticationData.getUserId(),authenticationData.getUsername());
+        return new AuthenticationResponse(UUID.randomUUID().toString(),authenticationData.getUserId(),authenticationData.getUsername());
     }
 }
