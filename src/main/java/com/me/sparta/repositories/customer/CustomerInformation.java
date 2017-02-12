@@ -3,8 +3,9 @@ package com.me.sparta.repositories.customer;
 public class CustomerInformation {
 
     private String idNumber;
+    private String title;
     private String firstName;
-    private String suname;
+    private String surname;
     private String email;
     private String mobile;
     private String address;
@@ -13,10 +14,11 @@ public class CustomerInformation {
     public CustomerInformation() {
     }
 
-    public CustomerInformation(String idNumber, String firstName, String suname, String email, String mobile, String address, String date) {
+    public CustomerInformation(String idNumber, String title, String firstName, String surname, String email, String mobile, String address, String date) {
         this.idNumber = idNumber;
+        this.title = title;
         this.firstName = firstName;
-        this.suname = suname;
+        this.surname = surname;
         this.email = email;
         this.mobile = mobile;
         this.address = address;
@@ -31,6 +33,14 @@ public class CustomerInformation {
         this.idNumber = idNumber;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -39,12 +49,12 @@ public class CustomerInformation {
         this.firstName = firstName;
     }
 
-    public String getSuname() {
-        return suname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSuname(String suname) {
-        this.suname = suname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getEmail() {
@@ -83,8 +93,9 @@ public class CustomerInformation {
     public String toString() {
         return "CustomerInformation{" +
                 "idNumber='" + idNumber + '\'' +
+                ", title='" + title + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", suname='" + suname + '\'' +
+                ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", address='" + address + '\'' +

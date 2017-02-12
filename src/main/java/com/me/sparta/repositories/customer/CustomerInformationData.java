@@ -3,14 +3,18 @@ package com.me.sparta.repositories.customer;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Document(collection = "customerInformationData")
 public class CustomerInformationData {
 
     @Id
-    private String idNumber;
+    private String customerId;
 
+    private String idNumber;
+    private String title;
     private String firstName;
-    private String suname;
+    private String surname;
     private String email;
     private String mobile;
     private String address;
@@ -19,10 +23,12 @@ public class CustomerInformationData {
     public CustomerInformationData() {
     }
 
-    public CustomerInformationData(String idNumber, String firstName, String suname, String email, String mobile, String address, String date) {
+    public CustomerInformationData(String idNumber, String title, String firstName, String surname, String email, String mobile, String address, String date) {
+        this.customerId = UUID.randomUUID().toString();
         this.idNumber = idNumber;
+        this.title = title;
         this.firstName = firstName;
-        this.suname = suname;
+        this.surname = surname;
         this.email = email;
         this.mobile = mobile;
         this.address = address;
@@ -31,8 +37,9 @@ public class CustomerInformationData {
 
     public CustomerInformationData(CustomerInformation customerInformation) {
         this.idNumber = customerInformation.getIdNumber();
+        this.title = customerInformation.getTitle();
         this.firstName = customerInformation.getFirstName();
-        this.suname = customerInformation.getSuname();
+        this.surname = customerInformation.getSurname();
         this.email = customerInformation.getEmail();
         this.mobile = customerInformation.getMobile();
         this.address = customerInformation.getAddress();
@@ -47,6 +54,14 @@ public class CustomerInformationData {
         this.idNumber = idNumber;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -55,12 +70,12 @@ public class CustomerInformationData {
         this.firstName = firstName;
     }
 
-    public String getSuname() {
-        return suname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSuname(String suname) {
-        this.suname = suname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getEmail() {
@@ -102,9 +117,11 @@ public class CustomerInformationData {
 
         CustomerInformationData that = (CustomerInformationData) o;
 
+        if (customerId != null ? !customerId.equals(that.customerId) : that.customerId != null) return false;
         if (idNumber != null ? !idNumber.equals(that.idNumber) : that.idNumber != null) return false;
+        if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
-        if (suname != null ? !suname.equals(that.suname) : that.suname != null) return false;
+        if (surname != null ? !surname.equals(that.surname) : that.surname != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (mobile != null ? !mobile.equals(that.mobile) : that.mobile != null) return false;
         if (address != null ? !address.equals(that.address) : that.address != null) return false;
@@ -114,9 +131,11 @@ public class CustomerInformationData {
 
     @Override
     public int hashCode() {
-        int result = idNumber != null ? idNumber.hashCode() : 0;
+        int result = customerId != null ? customerId.hashCode() : 0;
+        result = 31 * result + (idNumber != null ? idNumber.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (suname != null ? suname.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (mobile != null ? mobile.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
@@ -127,9 +146,11 @@ public class CustomerInformationData {
     @Override
     public String toString() {
         return "CustomerInformationData{" +
-                "idNumber='" + idNumber + '\'' +
+                "customerId='" + customerId + '\'' +
+                ", idNumber='" + idNumber + '\'' +
+                ", title='" + title + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", suname='" + suname + '\'' +
+                ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", address='" + address + '\'' +
